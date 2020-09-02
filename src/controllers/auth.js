@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const { Account } = require('../src/models');
+const { Account } = require('../models');
 
 router.get('/sign-in', (req, res) => {
     return res.json('Sign in');

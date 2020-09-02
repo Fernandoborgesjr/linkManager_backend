@@ -1,8 +1,8 @@
 const express = require('express');
-const authController = require('../controllers/auth.js');
+const authController = require('./controllers/auth.js');
 const app = express();
-const db = require('../src/models');
-const resMid = require('../middlewares/response');
+const db = require('./models');
+const resMid = require('./middlewares/response');
 
 app.use(resMid);
 
