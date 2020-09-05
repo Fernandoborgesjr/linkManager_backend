@@ -8,8 +8,8 @@
     "account.signup.success": "Cadastro efetuado com sucesso",
     "account.signup.password.string.empty": "É obrigatório informar uma senha",
     "account.signup.password.string.pattern.base": "A senha não atende os requisitos.",
-    "account.signup.password_confirmation.any.required": "Confirmação de senha é obrigatório.",
-    "account.signup.password_confirmation.any.only": "A senha de confirmação está incorreta.",
+    "account.signup.passwordConfirmation.any.required": "Confirmação de senha é obrigatório.",
+    "account.signup.passwordConfirmation.any.only": "A senha de confirmação está incorreta.",
     "account.signup.email.string.empty": "É obrigatório informar um e-mail",
     "account.signup.email.string.email": "Formato de e-mail inválido"
 }

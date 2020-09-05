@@ -1,9 +1,7 @@
+'use-strict';
+
 const messages = require('../config/messages.json');
 
+const getMessages = (path) => messages[path] || null;
 
-const getMessages = (path) => {
-    return messages[path] || null;
-};
-
-
-module.exports = { getMessages }
+module.exports = { getMessages };
