@@ -2,6 +2,7 @@
 
 const express = require('express');
 const authController = require('./controllers/auth.js');
+const linkController = require('./controllers/link.js');
 
 const app = express();
 const db = require('./models');
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/auth', authController);
+app.use('/link', linkController);
 
 app.get('/', (req, res) => res.json('Api running...'));
 

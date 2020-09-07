@@ -13,10 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  Account.prototype.toJSON = function () {
+  Account.associate = (models) => {
+    Account.hasMany(models.Link, { foreignKey: 'accountId' });
+  };
+
+  Account.prototype.toJSON = function dontShowPassword() {
     const values = { ...this.get() };
     delete values.password;
     return values;
   };
+
   return Account;
 };
