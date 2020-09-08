@@ -7,8 +7,9 @@ const linkController = require('./controllers/link.js');
 const app = express();
 const db = require('./models');
 const resMid = require('./middlewares/response');
+const { checkJwt } = require('./middlewares/jwt');
 
-app.use(resMid);
+app.use(resMid, checkJwt);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

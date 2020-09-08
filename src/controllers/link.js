@@ -5,8 +5,13 @@ const { Link } = require('../models');
 
 const router = express.Router();
 
+/* Quando essas rotas são chamadas a requisição passa pelo middleware jwt para
+verificar o token. Caso o token seja válido, o id do usuário é atribuido na requisição.
+Posteriormente é dada a sequencia das rotas abaixo. */
+
 router.get('/', async (req, res) => {
-  const accountId = 2; /* req.id */
+  /* Esse id que está na requisição está vindo da verificação do token */
+  const { accountId } = req;
   const link = await Link.findAll({ where: { accountId } });
 
   if (!link) return res.jsonNotFound();
@@ -15,8 +20,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const accountId = 2; /* req.id */
-  const { id } = req.params;
+  const { accountId, params } = req;
+  const { id } = params;
   const link = await Link.findOne({ where: { id, accountId } });
 
   if (!link) return res.jsonNotFound();
@@ -25,11 +30,11 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const accountId = 2; /* req.id */
+  const { accountId, body } = req;
 
   const {
     label, url, isSocial, /* image, */
-  } = req.body;
+  } = body;
 
   const image = 'https://google.com/image.jpeg';
 
@@ -41,9 +46,8 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const accountId = 2; /* req.id */
-  const { id } = req.params;
-  const { body } = req;
+  const { accountId, body, params } = req;
+  const { id } = params;
 
   const fields = ['label', 'url', 'isSocial', 'image'];
 
@@ -63,8 +67,8 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  const accountId = 2; /* req.id */
-  const { id } = req.params;
+  const { accountId, params } = req;
+  const { id } = params;
   const link = await Link.findOne({ where: { id, accountId } });
 
   if (!link) return res.jsonNotFound();
