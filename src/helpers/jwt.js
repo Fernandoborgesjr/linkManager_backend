@@ -17,6 +17,11 @@ const generateRefreshJwt = (payload) => jwt.sign(payload, refreshTokenPrivateKey
 
 const verifyRefreshJwt = (token) => jwt.verify(token, refreshTokenPrivateKey);
 
+const getTokenFromHeader = (header) => {
+  const token = header.authorization;
+  return token ? token.slice(8, token.length) : null;
+};
+
 module.exports = {
-  generateJwt, generateRefreshJwt, verifyJwt, verifyRefreshJwt,
+  generateJwt, generateRefreshJwt, verifyJwt, verifyRefreshJwt, getTokenFromHeader,
 };
