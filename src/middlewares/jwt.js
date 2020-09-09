@@ -6,7 +6,6 @@ const checkJwt = (req, res, next) => {
   /* Esse : após a url significa que a variavel está sendo apelidada.
   No presente caso o apelido é "path". */
   const { url: path } = req;
-  console.log(path);
 
   const excludedPaths = ['/auth/sign-in', '/auth/sign-up'];
   /* A dupla explamação é pra trasformar em booleano. */
